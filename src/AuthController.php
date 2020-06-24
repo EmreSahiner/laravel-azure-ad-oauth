@@ -35,6 +35,7 @@ class AuthController extends Controller
         $authUser = $user_class::where('email', $user->email)->first();
 
         if ($authUser) {
+            $authUser->azure_id = $user->id;
             return $authUser;
         }
 
